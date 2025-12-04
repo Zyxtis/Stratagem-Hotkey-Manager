@@ -7,8 +7,8 @@ This AutoHotkey script is built for Helldivers 2, allowing you to customize and 
     A lite version of the script has been added, featuring a minimalist approach while retaining core functionality.
     The lite version includes only two tabs and minimal customization options.
     Default values are set to match the in-game standards.
-    The dropdown list for keys allows you to select a pre-defined button. The very top option, [Hotkey], indicates that the input field will be used instead.
-    The script can be suspended/resumed at any time by pressing the Insert key.
+    The dropdown list for keys allows you to select a pre-defined button. The very top option, [Input], indicates that the input field will be used instead.
+    The script can be suspended/resumed at any time by pressing the Insert key, and can be closed completely by pressing the End key.
     Feel free to translate it into your language.
 
 
@@ -19,15 +19,15 @@ Key Features:
     Customizable Activation Key: Select or set your preferred key to activate the stratagem input menu (default is Left Control).
     Customizable Timings: Fine-tune delay settings for precise control.
     User-Friendly Interface (GUI): A simple graphical interface allows you to easily add, modify, and remove your keybinds.
-    Quick Weapon Function Switching: Instantly switch weapon functions with dedicated hotkeys.
     Quick Inventory Item Drop: Quickly drop inventory items using assigned hotkeys.
     Two Languages: English and Russian.
     Settings Persistence: All your binds and settings are automatically saved to an INI file, so you don't have to reconfigure everything each time you launch the script.
+    Auto-Pause: When enabled, the script will pause its operation if the game window is not in focus.
 
 
 Usage Instructions:
 
-    1. Download and install AutoHotkey 1.1.37.02, then run the StratagemCaller.ahk script. Alternatively, you can use the compiled version: StratagemCaller.exe
+    1. Download and install AutoHotkey 1.1.37.02, then run the StratagemCaller.ahk script.
     2. Select your Stratagem input layout: Arrows or WASD("Settings" tab). The script defaults to Arrows, while the game typically uses WASD
     3. Configure the Stratagem Menu Key: Choose your key from the dropdown menu (Left Ctrl is the default). Alternatively, you can assign any other key. To do this, select "Input" from the dropdown and press your desired key in the input field. Click "Apply Key" to save your changes("Settings" tab)
     4. Set a Hotkey for the Macro: In the "Set macro hotkey" field, enter the desired key to bind your Stratagem call to. Choose a suitable option for additional buttons from the dropdown list. Don't forget to switch to "Input" when you add other keys using the input field
@@ -55,17 +55,13 @@ Default Hotkeys:
 
 You can change these hotkeys by setting your own. To disable an unwanted function, simply clear its corresponding key field using Backspace and click "Apply".
 
-Checkbox Function Description:
 
-This adds the * operator to your hotkey. This means it will trigger regardless of whether other modifier keys (like Ctrl, Alt, Shift, or Win) are held down at the same time.
-
+Checkbox Function Description: This adds the * operator to your hotkey. This means it will trigger regardless of whether other modifier keys (like Ctrl, Alt, Shift, or Win) are held down at the same time.
 Only use this option for keybinds where you need them to activate independently of active modifiers. For example, if you're sprinting (holding Shift) and want to simultaneously call a stratagem or drop your backpack using a hotkey.
 Be careful: if you already use modifier-key combinations (e.g., Ctrl+Q) for your keybinds, activating this option for the plain 'Q' key can lead to overlapping triggers or unexpected behavior.
 
-Weapon Assistant
 
-Designed for use with weapons like: Epoch, RS-422 "Railgun", ARC-3 "Arc Thrower", PLAS-101 "Purifier", and PLAS-15 "Scythe".
-
+Weapon Assistant: Designed for use with weapons like: Epoch, RS-422 "Railgun", ARC-3 "Arc Thrower", PLAS-101 "Purifier", and PLAS-15 "Scythe".
 There are four available modes: one for Epoch, two for the RS-422 "Railgun" and one universal for other weapons:
 
     Purifier/Arc Thrower: Charges for 1 second, then releases. Hold the left mouse button for continuous fire.
@@ -73,21 +69,25 @@ There are four available modes: one for Epoch, two for the RS-422 "Railgun" and 
     Railgun (Unsafe): Charges for 2.9 seconds, then fires and reloads. Use this mode for the unsafe Railgun mode.
     Epoch: Charges for 2.5 second, then releases.
 
-
 The script performs a predefined action cycle by automatically triggering a left mouse click, based on the selected mode. A single press of the hotkey runs one cycle, while holding the hotkey will continuously repeat the action until release. After launch, it remains inactive until you enable it with its hotkey.
+
+Safety Catch: The safety mechanism deactivates the fire button until the designated safety key is held down, preventing accidental firing. This feature is only active once a hotkey is set.
+For example, if your fire key is set to the Left Mouse Button (LMB) and the safety key is the Right Mouse Button (RMB), the macro will only execute if you hold down RMB and then press LMB.
+The tilde (~) operator allows the safety keypress to pass through to the game, simultaneously activating the safety mechanism and triggering its usual in-game action (e.g., aiming).
 
 It's not recommended to activate the Weapon Assistant while the AutoHotkey GUI window is active. Clicking inside the window might cause a "stuck click" which can be resolved by pressing Esc or opening Task Manager. While this could be fixed in the script, it would negatively impact overall stability.
 
-Driver Assistant
-This feature introduces automatic gear shifting to enhance vehicle responsiveness and handling. Press W to shift to first gear and S to shift to reverse. Additionally, the script automatically deactivates this functionality when you press E (the vehicle exit key).
 
-Weapon Functions, Inventory Manager
-Switch between weapon functions and manage your inventory with a single key press.
+Driver Assistant: This feature introduces automatic gear shifting to enhance vehicle responsiveness and handling. Press W to shift to first gear and S to shift to reverse. Additionally, the script automatically deactivates this functionality when you press E (the vehicle exit key).
 
-Super Important Note: If you're using the compiled .exe file, Windows Security (Windows Defender) might flag it and send it for review. This could interfere with the script's operation. Please be aware of this and proceed at your own discretion.
+Inventory Manager: Drop an iteam from your inventory with a single key press.
+
+Global Stratagems: Allows you to add Stratagems you constantly use, such as Resupply or Reinforce. These Stratagems will be automatically included in all existing or newly created profiles.
 
 AHK Designations:
 
+    LButton - Left mouse button click
+    RButton - Right mouse button click
     MButton - Middle mouse button / scroll wheel (click)
     XButton1 - Fourth mouse button (usually the "Back" button in a browser)
     XButton2 - Fifth mouse button (usually the "Forward" button in a browser)
