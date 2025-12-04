@@ -80,7 +80,7 @@ It's not recommended to activate the Weapon Assistant while the AutoHotkey GUI w
 
 Driver Assistant: This feature introduces automatic gear shifting to enhance vehicle responsiveness and handling. Press W to shift to first gear and S to shift to reverse. Additionally, the script automatically deactivates this functionality when you press E (the vehicle exit key).
 
-Inventory Manager: Drop an iteam from your inventory with a single key press.
+Inventory Manager: Drop an item from your inventory with a single key press.
 
 Global Stratagems: Allows you to add Stratagems you constantly use, such as Resupply or Reinforce. These Stratagems will be automatically included in all existing or newly created profiles.
 
